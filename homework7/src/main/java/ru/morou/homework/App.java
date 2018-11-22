@@ -6,30 +6,29 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.function.ToIntFunction;
+
+import static java.util.Comparator.*;
 
 /**
- * Hello world!
+ * Satyukova Alena
  *
  */
 public class App {
     public static void main(String[] args) throws InvocationTargetException, IllegalAccessException, InstantiationException {
         start(Test1.class);
-        System.out.println();
-//        start(Test2.class);
-//        System.out.println();
- //       start("ru.morou.homework.App");
-        System.out.println();
+        System.out.println("\n");
+        start(Test2.class);
+        System.out.println("\n");
     }
 
     public static void start(Class c) throws InvocationTargetException, IllegalAccessException, InstantiationException {
         Method[] methods = c.getDeclaredMethods();
         int bsCount = 0, asCount = 0;
         List<Method> tests = new ArrayList<>();
-
         // check on uniqueness for BEFORE & AFTER SUITES. Adding TESTS to ArrayList
         for (Method o : methods) {
             String type = o.getDeclaredAnnotations()[0].annotationType().getSimpleName();
-            System.out.println(type);
             if (type.equals("BeforeSuite")) {
                 bsCount++;
                 if (bsCount > 1) throw new RuntimeException("You can use only 1 before annotation.");
@@ -42,7 +41,12 @@ public class App {
         }
 
         // Sort TESTS list by VALUE
-        tests.sort(Comparator.comparingInt(o2 -> o2.getAnnotation(Test.class).value()));
+        tests.sort(comparingInt(new ToIntFunction<Method>() {
+            @Override
+            public int applyAsInt(Method o2) {
+                return o2.getAnnotation(Test.class).priority();
+            }
+        }));
 
         // Add BEFORE SUITE to begin of TESTS & AFTER SUITE to the end.
         for (Method o : methods) {
@@ -58,22 +62,11 @@ public class App {
         // Show info. Run TESTS
         for (Method i : tests) {
             try {
-                System.out.print("(" + i.getDeclaredAnnotation(Test.class).value() + ") ");
+                System.out.print("(" + i.getDeclaredAnnotation(Test.class).priority() + ") ");
             } catch (NullPointerException e) {
-
+                e.printStackTrace();
             }
-            i.invoke(c.newInstance(), null);
+            i.invoke(c.newInstance(), (Object) null);
         }
     }
-
-
-//    public static void start(String className) {
-//        try {
-//            Class<?> c = Class.forName(className);
-//            Constructor<?> constructor = c.getConstructor(null);
-//            start(c);
-//        } catch (InvocationTargetException | InstantiationException | NoSuchMethodException | IllegalAccessException | ClassNotFoundException e) {
-//            e.printStackTrace();
-//        }
-//    }
 }

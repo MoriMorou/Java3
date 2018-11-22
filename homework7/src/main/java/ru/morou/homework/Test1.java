@@ -7,25 +7,25 @@ public class Test1 {
         System.out.println(Test1.class.getSimpleName() + " before");
     }
 
-    @Test(value = 10)
+    @Test(priority = 1)
     public void task1() {
         System.out.println(Test1.class.getSimpleName() + " task1");
     }
-//
-//    @Test(value = 3)
-//    public static void task2() {
-//        System.out.println(Test1.class.getSimpleName() + " task2");
-//    }
-//
-//    @Test(value = 4)
-//    public static void task3() {
-//        System.out.println(Test1.class.getSimpleName() + " task3");
-//    }
-//
-//    @Test(value = 3)
-//    public static void task4() {
-//        System.out.println(Test1.class.getSimpleName() + " task3");
-//    }
+
+    @Test(priority = 3)
+    public static void task2() {
+        System.out.println(Test1.class.getSimpleName() + " task2");
+    }
+
+    @Test(priority = 10)
+    public static void task3() {
+        System.out.println(Test1.class.getSimpleName() + " task3");
+    }
+
+    @Test(priority = 3)
+    public static void task4() {
+        System.out.println(Test1.class.getSimpleName() + " task3");
+    }
 
     @AfterSuite
     public static void taskAfter() {
