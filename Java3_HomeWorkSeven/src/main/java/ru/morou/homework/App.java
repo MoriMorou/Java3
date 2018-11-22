@@ -1,14 +1,12 @@
 package ru.morou.homework;
 
-import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 import java.util.function.ToIntFunction;
 
-import static java.util.Comparator.*;
+import static java.util.Comparator.comparingInt;
 
 /**
  * Satyukova Alena
@@ -64,9 +62,8 @@ public class App {
             try {
                 System.out.print("(" + i.getDeclaredAnnotation(Test.class).priority() + ") ");
             } catch (NullPointerException e) {
-                e.printStackTrace();
             }
-            i.invoke(c.newInstance(), (Object) null);
+            i.invoke(c.newInstance(),  null);
         }
     }
 }
