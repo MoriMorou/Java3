@@ -8,7 +8,7 @@ public class Test1 {
     }
 
     @Test(priority = 1)
-    public void task1() {
+    public static void task1() {
         System.out.println(Test1.class.getSimpleName() + " task1");
     }
 
@@ -24,7 +24,7 @@ public class Test1 {
 
     @Test(priority = 3)
     public static void task4() {
-        System.out.println(Test1.class.getSimpleName() + " task3");
+        System.out.println(Test1.class.getSimpleName() + " task4");
     }
 
     @AfterSuite
