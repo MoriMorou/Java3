@@ -3,7 +3,6 @@ package ru.morou.server.limp;
 import lombok.Getter;
 import lombok.SneakyThrows;
 import ru.morou.server.api.ServerConfiguration;
-import ru.morou.server.model.Connection;
 import ru.morou.server.service.ServerServiceBean;
 import ru.morou.server.api.Server;
 import ru.morou.server.task.AbstractServerTask;

@@ -1,6 +1,5 @@
 package ru.morou.server.task;
 
-import ru.morou.server.model.Connection;
 import ru.morou.server.api.Server;
 
 public class ServerTaskMessageBoardcast extends AbstractServerTask {

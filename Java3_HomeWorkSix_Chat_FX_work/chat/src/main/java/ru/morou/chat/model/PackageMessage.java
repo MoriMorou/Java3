@@ -5,6 +5,16 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+/**
+ * Method for understanding, from whom received a message from the server
+ * @Setter -
+ * @Getter -
+ * @ApplicationScoped - is a bean annotation
+ *
+ */
+
+
+
 @Setter
 @Getter
 @NoArgsConstructor

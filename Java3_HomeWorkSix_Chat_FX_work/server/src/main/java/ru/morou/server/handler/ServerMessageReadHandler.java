@@ -10,6 +10,7 @@ import ru.morou.server.service.ConnectionService;
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.event.Event;
 import javax.enterprise.event.Observes;
+import javax.enterprise.event.ObservesAsync;
 import javax.inject.Inject;
 import java.io.DataInputStream;
 import java.io.InputStream;
@@ -26,7 +27,7 @@ public class ServerMessageReadHandler {
     @Inject
     private Event<ServerMessageInputEvent> serverMessageInputEvent;
 
-    public void handler(@Observes final ServerMessageReadEvent event){
+    public void handler(@ObservesAsync final ServerMessageReadEvent event){
         System.out.println("ServerMessageReadHandler");
         try {
             @NotNull final InputStream inputStream = event.getSocket().getInputSream();

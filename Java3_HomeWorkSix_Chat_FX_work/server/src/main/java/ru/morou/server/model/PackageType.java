@@ -1,4 +1,4 @@
-package ru.morou.chat.model;
+package ru.morou.server.model;
 
 /**
  * The list of package types

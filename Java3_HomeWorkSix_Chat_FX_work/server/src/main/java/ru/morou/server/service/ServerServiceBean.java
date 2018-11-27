@@ -1,10 +1,9 @@
 package ru.morou.server.service;
 
-
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-
 import lombok.SneakyThrows;
+
 import ru.morou.server.api.Server;
 import ru.morou.server.api.ServerConfiguration;
 import ru.morou.server.events.ServerConnectionEvent;
@@ -31,6 +30,6 @@ public class ServerServiceBean implements Server {
     @SneakyThrows
     public void run(){
         serverSocket = new ServerSocket(serverConfiguration.getPort());
-        ServerConnectionEvent.fire(new ServerConnectionEvent());
+        serverConnectionEvent.fire(new ServerConnectionEvent());
     }
 }

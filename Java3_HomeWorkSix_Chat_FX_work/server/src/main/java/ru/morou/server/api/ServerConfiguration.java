@@ -5,6 +5,12 @@ import lombok.Setter;
 
 import javax.enterprise.context.ApplicationScoped;
 
+/**
+ * @Setter -
+ * @Getter -
+ * @ApplicationScoped - is a bean annotation
+ */
+
 @Getter
 @Setter
 @ApplicationScoped
