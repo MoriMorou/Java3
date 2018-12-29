@@ -1,9 +1,10 @@
-package ru.morou.server.service;
+package ru.morou.server.api;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.net.Socket;
+import java.sql.Connection;
 import java.util.List;
 
 public interface ConnectionService {

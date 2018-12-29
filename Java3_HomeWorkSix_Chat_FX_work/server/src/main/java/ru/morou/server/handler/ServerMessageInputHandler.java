@@ -4,11 +4,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import lombok.SneakyThrows;
 import org.jetbrains.annotations.NotNull;
-import ru.morou.server.events.ServerMessageInputEvent;
-import ru.morou.server.events.ServerMessageReadEvent;
-import ru.morou.server.events.ServerPingEvent;
+import ru.morou.server.events.*;
 import ru.morou.server.model.Package;
-import ru.morou.server.service.ConnectionService;
+import ru.morou.server.api.ConnectionService;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.event.Event;
@@ -31,6 +29,17 @@ public class ServerMessageInputHandler {
     @Inject
     private Event<ServerPingEvent> serverPingEvent;
 
+    @Inject
+    private Event<ServerRegistryEvent> serverRegistryEvent;
+
+    @Inject
+    private Event<ServerLoginEvent> serverLoginEvent;
+
+    @Inject
+    private Event<ServerBroadcastEvent> serverBroadcastEvent;
+
+    @Inject
+    private Event<ServerLoginOutEvent> serverLoginOutEvent;
 
     @SneakyThrows
     public void observe(@ObservesAsync final ServerMessageInputEvent event) {
@@ -60,7 +69,7 @@ public class ServerMessageInputHandler {
                 break;
 
             case LOGOUT:
-                serverLogoutEvent.fireAsync(new ServerLogoutEvent(socket, message));
+                serverLoginOutEvent.fireAsync(new ServerLoginOutEvent(socket, message));
                 break;
         }
     }

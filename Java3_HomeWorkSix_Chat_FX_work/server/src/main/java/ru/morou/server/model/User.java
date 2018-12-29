@@ -10,7 +10,7 @@ import org.jetbrains.annotations.Nullable;
 @Setter
 @NoArgsConstructor
 @JsonIgnoreProperties (ignoreUnknown = true)
-public class User extends Package{
+public final class User{
 
     @Nullable
     private String login;

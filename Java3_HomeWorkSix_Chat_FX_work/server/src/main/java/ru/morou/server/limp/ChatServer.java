@@ -1,7 +1,7 @@
 package ru.morou.server.limp;
 
 import lombok.Getter;
-import ru.morou.server.api.ServerConfiguration;
+import ru.morou.server.service.ServerConfiguration;
 import ru.morou.server.api.ServerApp;
 import ru.morou.server.api.Server;
 

@@ -1,15 +1,12 @@
 package ru.morou.server.handler;
 
-import lombok.Getter;
 import org.jetbrains.annotations.NotNull;
-import ru.morou.server.events.ServerConnectionEvent;
 import ru.morou.server.events.ServerMessageInputEvent;
 import ru.morou.server.events.ServerMessageReadEvent;
-import ru.morou.server.service.ConnectionService;
+import ru.morou.server.api.ConnectionService;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.event.Event;
-import javax.enterprise.event.Observes;
 import javax.enterprise.event.ObservesAsync;
 import javax.inject.Inject;
 import java.io.DataInputStream;

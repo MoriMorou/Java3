@@ -3,7 +3,7 @@ package ru.morou.chat.impl;
 import lombok.Getter;
 import lombok.SneakyThrows;
 import ru.morou.chat.ChatConfiguration;
-import ru.morou.chat.Client;
+import ru.morou.chat.api.Client;
 import ru.morou.chat.task.AbstractChatTask;
 import ru.morou.chat.task.ClientTaskMessageInput;
 import ru.morou.chat.task.ClientTaskMessageRead;

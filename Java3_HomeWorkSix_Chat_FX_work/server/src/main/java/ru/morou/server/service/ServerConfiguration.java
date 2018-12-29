@@ -1,4 +1,4 @@
-package ru.morou.server.api;
+package ru.morou.server.service;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -4,7 +4,7 @@ import lombok.SneakyThrows;
 import ru.morou.server.api.Server;
 import ru.morou.server.events.ServerConnectionEvent;
 import ru.morou.server.events.ServerMessageReadEvent;
-import ru.morou.server.service.ConnectionService;
+import ru.morou.server.api.ConnectionService;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.event.Event;
@@ -34,6 +34,5 @@ public class ServerConnectionHandler {
         connectionService.add(socket);
         serverMessageReadEvent.fireAsync(new ServerMessageReadEvent(socket));
         serverConnectionEvent.fire(new ServerConnectionEvent());
-
     }
 }

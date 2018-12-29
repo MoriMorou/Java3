@@ -2,7 +2,7 @@ package ru.morou.chat.impl;
 
 import lombok.Getter;
 import ru.morou.chat.ChatConfiguration;
-import ru.morou.chat.Client;
+import ru.morou.chat.api.Client;
 import ru.morou.chat.api.ChatApp;
 
 import java.util.concurrent.ExecutorService;
